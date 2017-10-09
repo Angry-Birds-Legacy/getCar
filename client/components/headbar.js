@@ -30,10 +30,16 @@ angular.module('get-car')
 
 		// The big getCar text in the top-left corner ..
 		$scope.reset = function() {
+			$scope.$parent.rent = null; 				//jwan
 			$scope.$parent.signUp = null;
 			$scope.$parent.logIn = null;
 			$scope.$parent.add = null;
 			$scope.$parent.about = null;
+		};
+
+		$scope.renttt = function(){						//jwan
+			console.log('hello')
+			$scope.$parent.rentt();
 		};
 		
 		$scope.add = function () {
