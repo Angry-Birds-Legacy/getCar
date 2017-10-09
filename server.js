@@ -175,6 +175,16 @@ app.post("/addtorent",function(req,res){
 	res.end();
 });
 
+// This get will start at the beginning to bring all the data from the cars database that are just for renting
+app.get('/data/rent',function(req, res){
+  car.find({operation :'rent' }, function(err,data){
+  	// Pushing the logged in variable with the data
+	data.push(logged ,userlogged);
+	// Sending data to the front end.
+	res.json(data);
+  });
+});
+
 
 
 
