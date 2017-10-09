@@ -39,6 +39,9 @@ angular.module('get-car')
 		$scope.add = function () {
 			$scope.$parent.addd();
 		};
+		$scope.addrental=function(){
+        	$scope.$parent.adddrental();
+		}
 
 		$scope.abot = function () {
 			$scope.$parent.shabout();

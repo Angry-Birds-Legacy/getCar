@@ -19,6 +19,7 @@ angular.module('get-car')
 		$scope.logIn;
 		$scope.signUp;
 		$scope.add;
+		$scope.addrental;
 		$scope.about;
 		// this one is from the server logged variable.
 		// check line 65.
@@ -53,7 +54,11 @@ angular.module('get-car')
 		$scope.addd = function(){
 			$scope.add = true
 		}
-
+        // This function is connected with the headbar 
+		// and responsible of showing the add rental car template.
+        $scope.adddrental = function(){
+			$scope.addrental = true
+		}
 		// this variable to save the data comming from the server.
 		this.searchTest = [];
 
