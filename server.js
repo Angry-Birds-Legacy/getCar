@@ -82,7 +82,7 @@ app.get('/logout', function(req, res) {
         \ \\   |   \   |     /    /       /
          \ '\ /     \  |     |  _/       /
           \  \       \ |     | /        /
-           \  \      \        /
+           \  \       \       /
 */
 	req.session.destroy(function() {
 		// Assign him as a quieter.
