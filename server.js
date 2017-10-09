@@ -29,7 +29,7 @@ var userlogged = []
 
 // This get will start at the beginning to bring all the data from the cars database
 app.get('/data',function(req, res){
-  car.find({}, function(err,data){
+  car.find({operation :'buy' }, function(err,data){
   	// Pushing the logged in variable with the data
 	data.push(logged ,userlogged);
 	// Sending data to the front end.
@@ -130,7 +130,9 @@ app.post("/add",function(req,res){
 		type: req.body.type,
 		color: req.body.color,
 		price: req.body.price,
-		image: req.body.image
+		image: req.body.image,
+		operation:'buy'
+
 	});
   carr.save(function(err, carr){
 		if (err){
@@ -139,6 +141,42 @@ app.post("/add",function(req,res){
 	});
 	res.end();
 });
+
+
+
+
+
+
+
+
+app.post("/addtorent",function(req,res){
+	// saving the new car ..
+	// oops!, check line 55 maybe ? ¯\_(ツ)_/¯
+	var carr = new car ({
+		username: req.body.username,
+		phone: req.body.phone,
+		type: req.body.type,
+		color: req.body.color,
+		price: req.body.price,
+		image: req.body.image,
+		operation:'rent',
+	    status:'available',
+	    pickupPlace:req.body.pickupPlace,
+	    returnPlace:req.body.returnPlace,
+	    rentingPeriod:req.body,
+	    rentingPrice:req.body.rentingPrice
+
+	});
+  carr.save(function(err, carr){
+		if (err){
+			console.log(err)
+		};
+	});
+	res.end();
+});
+
+
+
 
 // Our wormHole ..
 var port = process.env.PORT || 5000;
