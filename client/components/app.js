@@ -16,6 +16,7 @@ angular.module('get-car')
 	// responsible of the show and hide in the app.html
 
 		// these variables to show the different templates.	
+		$scope.rent;		//jwan
 		$scope.logIn;
 		$scope.signUp;
 		$scope.add;
@@ -27,12 +28,24 @@ angular.module('get-car')
 		// this on is for the logged in user information ..
 		// check line 66
 		this.userInfo;
+		this.rentUserInfo;
+
+		$scope.rentt = function () {		//jwan
+			console.log("hi")
+			$scope.rent = true;
+			$scope.logIn = false;
+			$scope.signUp = false;
+			$scope.about = false;
+			$scope.add = false;
+		}
+
 		// This function is connected with the headbar 
 		// and responsible of showing the log in template.
 		$scope.change = function(){
 			$scope.logIn = true
 			$scope.signUp = false
 			$scope.about = false
+			$scope.rent = false;		//jwan
 		};
 		
 		// This function is connected with the headbar 
@@ -41,18 +54,23 @@ angular.module('get-car')
 			$scope.signUp = true
 			$scope.logIn = false
 			$scope.about = false
+			$scope.rent = false;		//jwan
 		}
 
 		$scope.shabout = function(){
 			$scope.about = true
 			$scope.signUp = false
 			$scope.logIn = false
+			$scope.rent = false;		//jwan
+			$scope.add = false;			//jwan
 		}
 		
 		// This function is connected with the headbar 
 		// and responsible of showing the add car template.
 		$scope.addd = function(){
 			$scope.add = true
+			$scope.rent = false;
+
 		}
         // This function is connected with the headbar 
 		// and responsible of showing the add rental car template.
@@ -61,6 +79,7 @@ angular.module('get-car')
 		}
 		// this variable to save the data comming from the server.
 		this.searchTest = [];
+		this.rentData = [];
 
 		// This is the auto get request that brings the data from the server.
 		$http.get('/data')
@@ -74,6 +93,24 @@ angular.module('get-car')
 			  for (var i=0; i<response.data.length - 2; i++){
 				$scope.$ctrl.searchTest.push(response.data[i])
 			  }
+			  console.log($scope.$ctrl.searchTest)
+		}, 
+		function(response){
+			console.log(response)
+		});
+
+		$http.get('/data/rent')
+		.then(
+			function(response){
+			  // assigning the logged status to the loog variable.
+			  $scope.$ctrl.loog = response.data[response.data.length - 2]
+			  $scope.$ctrl.rentUserInfo = response.data[response.data.length - 1]
+
+			  // saving the cars objects and removing the looged in status. 
+			  for (var i=0; i<response.data.length - 2; i++){
+				$scope.$ctrl.rentData.push(response.data[i])
+			  }
+			  console.log($scope.$ctrl.rentData)
 		}, 
 		function(response){
 			console.log(response)
