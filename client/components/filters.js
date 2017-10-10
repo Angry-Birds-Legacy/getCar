@@ -7,7 +7,7 @@ angular.module('get-car')
 		searchtt: '<'
 	},
 
-  controller: function($scope, $filter, $http,){
+  controller: function($scope, $http,){
     // Our custom price filter
     $scope.rangeMin = 0;
     $scope.rangeMax = 1000000;
