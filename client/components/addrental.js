@@ -7,8 +7,8 @@ angular.module('get-car')
    userin: '<'
   },
 	controller: function ($scope, $http){
-      // uploading the image ..
-      $scope.image = document.getElementById("image").onchange = function(evt){
+      //uploading the image ..
+      $scope.image = document.getElementById("image1").onchange = function(evt){
         var tgt = evt.target || window.event.srcElement,
         files = tgt.files;
         if(FileReader && files && files.length){
@@ -21,14 +21,18 @@ angular.module('get-car')
         }
       };
       
-    $scope.add = function(){
-      //collect data from user in one obj
-    $scope.car = {type : $scope.type , color : $scope.color , price : $scope.rentalPrice , image : $scope.image.src, username: $scope.$ctrl.userin[0], phone: $scope.$ctrl.userin[1],pickupPlace:$scope.pickupPlace,returnPlace:$scope.returnPlace};
 
-    if($scope.car.type !== undefined && $scope.car.color !== undefined  && $scope.car.rentalPrice !== undefined && $scope.car.image !== undefined && $scope.car.pickupPlace && $scope.car.returnPlace){
+      
+    $scope.add = function(){
+       
+
+      //collect data from user in one obj
+    $scope.car = {type : $scope.type , color : $scope.color , price : $scope.price , image : $scope.image.src, username: $scope.$ctrl.userin[0], phone: $scope.$ctrl.userin[1],pickupPlace:$scope.pickupPlace,returnPlace:$scope.returnPlace};
+    if($scope.car.type !== undefined && $scope.car.color !== undefined  && $scope.car.price !== undefined && $scope.car.image !== undefined && $scope.car.pickupPlace && $scope.car.returnPlace){
       //send the car to the server
     $http.post("/addtorent" , $scope.car)
       .then(function(data){
+        
         $scope.addrental = false;
         window.location = "../../index.html"
       }, function(data){
