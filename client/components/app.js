@@ -31,12 +31,12 @@ angular.module('get-car')
 		this.rentUserInfo;
 
 		$scope.rentt = function () {		//jwan
-			console.log("hi")
 			$scope.rent = true;
 			$scope.logIn = false;
 			$scope.signUp = false;
 			$scope.about = false;
 			$scope.add = false;
+			$scope.addrental=false;
 		}
 
 		// This function is connected with the headbar 
@@ -45,7 +45,8 @@ angular.module('get-car')
 			$scope.logIn = true
 			$scope.signUp = false
 			$scope.about = false
-			$scope.rent = false;		//jwan
+			$scope.rent = false;	
+			$scope.addrental=false;	//jwan
 		};
 		
 		// This function is connected with the headbar 
@@ -54,7 +55,8 @@ angular.module('get-car')
 			$scope.signUp = true
 			$scope.logIn = false
 			$scope.about = false
-			$scope.rent = false;		//jwan
+			$scope.rent = false;
+			$scope.addrental=false;		//jwan
 		}
 
 		$scope.shabout = function(){
