@@ -31,12 +31,12 @@ angular.module('get-car')
 		this.rentUserInfo;
 
 		$scope.rentt = function () {		//jwan
-			console.log("hi")
 			$scope.rent = true;
 			$scope.logIn = false;
 			$scope.signUp = false;
 			$scope.about = false;
 			$scope.add = false;
+			$scope.addrental=false;
 		}
 
 		// This function is connected with the headbar 
@@ -45,7 +45,8 @@ angular.module('get-car')
 			$scope.logIn = true
 			$scope.signUp = false
 			$scope.about = false
-			$scope.rent = false;		//jwan
+			$scope.rent = false;	
+			$scope.addrental=false;	//jwan
 		};
 		
 		// This function is connected with the headbar 
@@ -54,7 +55,8 @@ angular.module('get-car')
 			$scope.signUp = true
 			$scope.logIn = false
 			$scope.about = false
-			$scope.rent = false;		//jwan
+			$scope.rent = false;
+			$scope.addrental=false;		//jwan
 		}
 
 		$scope.shabout = function(){
@@ -63,6 +65,7 @@ angular.module('get-car')
 			$scope.logIn = false
 			$scope.rent = false;		//jwan
 			$scope.add = false;			//jwan
+			$scope.addrental = false;
 		}
 		
 		// This function is connected with the headbar 
@@ -70,12 +73,20 @@ angular.module('get-car')
 		$scope.addd = function(){
 			$scope.add = true
 			$scope.rent = false;
+			$scope.addrental = false;
+			$scope.about = false
 
 		}
         // This function is connected with the headbar 
 		// and responsible of showing the add rental car template.
         $scope.adddrental = function(){
 			$scope.addrental = true
+			$scope.rent = false;
+			$scope.about = false
+			$scope.signUp = false
+			$scope.logIn = false		//jwan
+			$scope.add = false;			//jwan
+
 		}
 		// this variable to save the data comming from the server.
 		this.searchTest = [];
@@ -91,13 +102,13 @@ angular.module('get-car')
 
 			  // saving the cars objects and removing the looged in status. 
 			  for (var i=0; i<response.data.length - 2; i++){
-			  	console.log(response.data[i]);
+			  	//console.log(response.data[i]);
 				$scope.$ctrl.searchTest.push(response.data[i])
 			  }
-			  console.log($scope.$ctrl.searchTest)
+			  //console.log($scope.$ctrl.searchTest)
 		}, 
 		function(response){
-			console.log(response)
+			//console.log(response)
 		});
 
 		$http.get('/data/rent')
@@ -111,10 +122,10 @@ angular.module('get-car')
 			  for (var i=0; i<response.data.length - 2; i++){
 				$scope.$ctrl.rentData.push(response.data[i])
 			  }
-			  console.log($scope.$ctrl.rentData)
+			  //console.log($scope.$ctrl.rentData)
 		}, 
 		function(response){
-			console.log(response)
+			//console.log(response)
 		});
 	},
 
