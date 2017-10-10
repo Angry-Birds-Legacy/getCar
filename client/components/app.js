@@ -91,6 +91,7 @@ angular.module('get-car')
 
 			  // saving the cars objects and removing the looged in status. 
 			  for (var i=0; i<response.data.length - 2; i++){
+			  	console.log(response.data[i]);
 				$scope.$ctrl.searchTest.push(response.data[i])
 			  }
 			  console.log($scope.$ctrl.searchTest)
