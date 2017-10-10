@@ -12,8 +12,8 @@ angular.module('get-car')
     $scope.rangeMaxRent = 800;
 
     // the custom filter function ..
-    $scope.filterRange = function(obj) {
-      return obj.price > $scope.rangeMinRent && obj.price <= $scope.rangeMaxRent;
+    $scope.filterRange2 = function(obj) {
+      return obj.rentingPrice > $scope.rangeMinRent && obj.rentingPrice <= $scope.rangeMaxRent;
     };
 
     // choosing all of them ..

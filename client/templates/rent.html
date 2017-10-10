@@ -1,5 +1,5 @@
-<div class = "rentshow" >
-  <rentshow ng-repeat = "item in $ctrl.rentCar | filter: search " car = "item">
+<div class = "rentshow" style="margin-left: 100px;" >
+  <rentshow ng-repeat = "item in $ctrl.rentCar | filter: search | filter: searcch | filter: filterRange2" car = "item">
   </rentshow>
 </div>
 <div class="filters" style="width: 250px;" ng-model = "search.$">
@@ -18,7 +18,7 @@
          </br>
          <form style="margin-left: 20px;">
             <input type="radio" name="type" ng-model="searcch.type" value = '' ><strong style="font-family:Relation; font-size:20px" > All</strong> <br/>
-            <div ng-repeat = "item in $ctrl.items | filter : color | unique: 'type' " >
+            <div ng-repeat = "item in $ctrl.rentCar | filter : color | unique: 'type' " >
                <input type="radio" name="type" ng-model="$parent.searcch.type" value={{item.type}}><strong style="font-family:Relation; font-size:20px;"> {{item.type}} </strong><br/>
             </div>
          </form>
@@ -51,7 +51,7 @@
          <form style="margin-left: 20px;">
             <strong style="font-family:Relation; font-size:20px"><input type="radio" name="type" ng-model="searcch.color" value = ""> All <br/></strong>
             <strong style="font-family:Relation; font-size:20px">
-               <div ng-repeat="item in $ctrl.items | filter: search | filter : type | unique: 'color'">
+               <div ng-repeat="item in $ctrl.rentCar | filter: search | filter : type | unique: 'color'">
             </strong>
             <strong style="font-family:Relation; font-size:20px"> <input type="radio" name="color" ng-model="$parent.searcch.color" value={{item.color}}> {{item.color}} <br/></strong>
             </div>
