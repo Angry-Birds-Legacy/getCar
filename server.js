@@ -29,9 +29,11 @@ var userlogged = []
 
 // This get will start at the beginning to bring all the data from the cars database
 app.get('/data',function(req, res){
-  car.find({operation :'buy' }, function(err,data){
+  //car.find({operation :'buy' }, function(err,data){
+  	car.find({}, function(err,data){
   	// Pushing the logged in variable with the data
 	data.push(logged ,userlogged);
+	console.log(data)
 	// Sending data to the front end.
 	res.json(data);
   });

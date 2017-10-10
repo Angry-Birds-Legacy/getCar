@@ -29,6 +29,7 @@ angular.module('get-car')
       //send the car to the server
     $http.post("/add" , $scope.car)
       .then(function(data){
+        console.log('hi');
         $scope.add = false;
         window.location = "../../index.html"
       }, function(data){
