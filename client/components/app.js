@@ -63,6 +63,7 @@ angular.module('get-car')
 			$scope.logIn = false
 			$scope.rent = false;		//jwan
 			$scope.add = false;			//jwan
+			$scope.addrental = false;
 		}
 		
 		// This function is connected with the headbar 
@@ -70,12 +71,20 @@ angular.module('get-car')
 		$scope.addd = function(){
 			$scope.add = true
 			$scope.rent = false;
+			$scope.addrental = false;
+			$scope.about = false
 
 		}
         // This function is connected with the headbar 
 		// and responsible of showing the add rental car template.
         $scope.adddrental = function(){
 			$scope.addrental = true
+			$scope.rent = false;
+			$scope.about = false
+			$scope.signUp = false
+			$scope.logIn = false		//jwan
+			$scope.add = false;			//jwan
+
 		}
 		// this variable to save the data comming from the server.
 		this.searchTest = [];
