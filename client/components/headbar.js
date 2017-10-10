@@ -38,7 +38,7 @@ angular.module('get-car')
 		};
 
 		$scope.renttt = function(){						//jwan
-			console.log('hello')
+			//console.log('hello')
 			$scope.$parent.rentt();
 		};
 		

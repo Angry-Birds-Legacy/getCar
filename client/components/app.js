@@ -31,7 +31,7 @@ angular.module('get-car')
 		this.rentUserInfo;
 
 		$scope.rentt = function () {		//jwan
-			console.log("hi")
+			//console.log("hi")
 			$scope.rent = true;
 			$scope.logIn = false;
 			$scope.signUp = false;
@@ -91,13 +91,13 @@ angular.module('get-car')
 
 			  // saving the cars objects and removing the looged in status. 
 			  for (var i=0; i<response.data.length - 2; i++){
-			  	console.log(response.data[i]);
+			  	//console.log(response.data[i]);
 				$scope.$ctrl.searchTest.push(response.data[i])
 			  }
-			  console.log($scope.$ctrl.searchTest)
+			  //console.log($scope.$ctrl.searchTest)
 		}, 
 		function(response){
-			console.log(response)
+			//console.log(response)
 		});
 
 		$http.get('/data/rent')
@@ -111,10 +111,10 @@ angular.module('get-car')
 			  for (var i=0; i<response.data.length - 2; i++){
 				$scope.$ctrl.rentData.push(response.data[i])
 			  }
-			  console.log($scope.$ctrl.rentData)
+			  //console.log($scope.$ctrl.rentData)
 		}, 
 		function(response){
-			console.log(response)
+			//console.log(response)
 		});
 	},
 

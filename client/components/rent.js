@@ -5,7 +5,10 @@ angular.module('get-car')
 .component('rent', {
     bindings: {
 	  item: "<"
-    },
+	},
+	controller: function(){
+		console.log(this.items)
+	},
 
 	templateUrl: `
 	client/templates/rent.html
