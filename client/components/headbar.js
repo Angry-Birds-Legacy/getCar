@@ -35,10 +35,11 @@ angular.module('get-car')
 			$scope.$parent.logIn = null;
 			$scope.$parent.add = null;
 			$scope.$parent.about = null;
+			$scope.$parent.addrental = null;
 		};
 
 		$scope.renttt = function(){						//jwan
-			console.log('hello')
+			//console.log('hello')
 			$scope.$parent.rentt();
 		};
 		
