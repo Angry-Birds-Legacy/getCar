@@ -3,8 +3,10 @@ var express = require('express');
 var morgan = require('morgan');
 var bodyParser=require('body-parser');
 var path = require('path')
-var user = require("./db/db.js"); // Our user database
-var car = require("./db/carDB.js") // Our car database
+var coment = require("./db/Coment.js")
+var user = require("./db/db.js"); // user database
+var car = require("./db/carDB.js") // cars database
+var contactus = require("./db/contactusDB.js") // contact us database
 var bcrypt = require('bcrypt-nodejs');
 var Promise = require('bluebird');
 var app = express();
@@ -170,10 +172,49 @@ app.post("/add",function(req,res){
 	});
 	res.end();
 });
+// post request to contact us 
+app.post("/contactus",function(req,res){
+	var newContactus = new contactus ({
+		name: req.body.name,
+		email: req.body.email,
+		subject: req.body.subject,
+		message: req.body.message
+	});
+  newContactus.save(function(err, newContactus){
+		if (err){
+			console.log(err)
+		};
+	});
+	res.end('Thank You for Contacting US ');
+});
 
 
+// add coment 
 
+app.post("/coment",function(req,res){
+	console.log(req.body)
+	var comment=new coment({username:req.body.username,txt:req.body.coment,carId:req.body.id});
+	comment.save(function(err, c){
+		if (err){
+			console.log(err)
+		}
+	});
+	coment.find({carId:req.body.id},function (err,data){
+		if(err){
+			console.log(err);
+		}
+		res.json(data);
+	})
+})
 
+app.post("/coments",function(req,res){
+	coment.find({carId:req.body.id},function (err,data){
+		if(err){
+			console.log(err);
+		}
+		res.json(data);
+	})
+})
 
 
 

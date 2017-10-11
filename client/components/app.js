@@ -22,6 +22,7 @@ angular.module('get-car')
 		$scope.add;
 		$scope.addrental;
 		$scope.about;
+		$scope.feedback;
 		// this one is from the server logged variable.
 		// check line 65.
 		this.loog = false;
@@ -37,6 +38,7 @@ angular.module('get-car')
 			$scope.about = false;
 			$scope.add = false;
 			$scope.addrental=false;
+			$scope.feedback = false;
 		}
 
 		// This function is connected with the headbar 
@@ -47,6 +49,7 @@ angular.module('get-car')
 			$scope.about = false
 			$scope.rent = false;	
 			$scope.addrental=false;	//jwan
+			$scope.feedback = false;
 		};
 		
 		// This function is connected with the headbar 
@@ -57,12 +60,24 @@ angular.module('get-car')
 			$scope.about = false
 			$scope.rent = false;
 			$scope.addrental=false;		//jwan
+			$scope.feedback = false;
 		}
 
 		$scope.shabout = function(){
 			$scope.about = true
 			$scope.signUp = false
 			$scope.logIn = false
+			$scope.rent = false;		//jwan
+			$scope.add = false;			//jwan
+			$scope.addrental = false;
+			$scope.feedback = false;
+		}
+
+		$scope.showFeedback = function(){
+			$scope.feedback = true;
+			$scope.about = false;
+			$scope.signUp = false;
+			$scope.logIn = false;
 			$scope.rent = false;		//jwan
 			$scope.add = false;			//jwan
 			$scope.addrental = false;
@@ -74,7 +89,8 @@ angular.module('get-car')
 			$scope.add = true
 			$scope.rent = false;
 			$scope.addrental = false;
-			$scope.about = false
+			$scope.about = false;
+			$scope.feedback = false;
 
 		}
         // This function is connected with the headbar 
@@ -82,10 +98,11 @@ angular.module('get-car')
         $scope.adddrental = function(){
 			$scope.addrental = true
 			$scope.rent = false;
-			$scope.about = false
-			$scope.signUp = false
+			$scope.about = false;
+			$scope.signUp = false;
 			$scope.logIn = false		//jwan
 			$scope.add = false;			//jwan
+			$scope.feedback = false;
 
 		}
 		// this variable to save the data comming from the server.
@@ -99,7 +116,7 @@ angular.module('get-car')
 			  // assigning the logged status to the loog variable.
 			  $scope.$ctrl.loog = response.data[response.data.length - 2]
 			  $scope.$ctrl.userInfo = response.data[response.data.length - 1]
-
+			 
 			  // saving the cars objects and removing the looged in status. 
 			  for (var i=0; i<response.data.length - 2; i++){
 			  	//console.log(response.data[i]);
