@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="col-sm-10" style="width : 600px; margin-left: 250px; margin-top: 50px;">
+    <div class="jumbotron" style="margin-top: 50px">
+      <div  class="form-group" style="margin-top:-50px">
+        <h1 style="text-align: center;"> <label>Contact Us</label> </h1>
+      </div>
+      <hr>
+      <form class="form-horizantal">
+        <div class="form-group input-group" >
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-user"></span>
+          </span>
+          <input type="text" ng-model="name"  class="form-control" id="name" placeholder="Enter Your Name Here ..." required></input>
+        </div>
+
+        <div class="form-group input-group" >
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-envelope"></span>
+          </span>
+          <input type="text" ng-model="email"  class="form-control" id="email" placeholder="Enter Your Email Here ..."  required></input>
+        </div>
+        <div class="form-group input-group" >
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-pencil"></span>
+          </span>
+          <input type="text"    ng-model="subject"     class="form-control" id="subject"  placeholder="Enter Your Subject Here ..." required></input>
+        </div>
+        <div class="form-group input-group" >
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-comment"></span>
+          </span>
+          <span class="btn btn-default btn-file" style="width: 412px; height: 200px">
+            FeedBack  <textarea class="form-control" ng-model="message" id="message" placeholder="Enter your feedback here please.."  style="height: 160px" required ></textarea>
+          </span>
+        </div>
+        <div class="form-group " >
+          <button class = "btn btn-primary " type="submit"     ng-click= addFeedback()   class="form-control" id="addFeedback" style="width: 452px"> Submit </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
