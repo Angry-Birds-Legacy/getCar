@@ -3,8 +3,9 @@ var express = require('express');
 var morgan = require('morgan');
 var bodyParser=require('body-parser');
 var path = require('path')
-var user = require("./db/db.js"); // Our user database
-var car = require("./db/carDB.js") // Our car database
+var user = require("./db/db.js"); // user database
+var car = require("./db/carDB.js") // cars database
+var contactus = require("./db/contactusDB.js") // contact us database
 var bcrypt = require('bcrypt-nodejs');
 var Promise = require('bluebird');
 var app = express();
@@ -38,6 +39,33 @@ app.get('/data',function(req, res){
 	res.json(data);
   });
 });
+
+
+// This get will start at the beginning to bring all the data from the cars database that the user logged in added before
+app.get('/profile',function(req, res){
+  //car.find({operation :'buy' }, function(err,data){
+  	car.find({username:userlogged[0]}, function(err,data){
+  	// Pushing the logged in variable with the data
+	data.push(logged ,userlogged);
+	//console.log(data)
+	// Sending data to the front end.
+	res.json(data);
+  });
+});
+
+username:userlogged[0]
+
+
+// // This get will start at the beginning to bring all the data from the cars database for just the user that logged in now 
+// app.get('/profile',function(req, res){
+//   	car.find({username:req.body.username}, function(err,data){
+//   	// Pushing the logged in variable with the data
+// 	data.push(logged ,userlogged);
+// 	//console.log(data)
+// 	// Sending data to the front end.
+// 	res.json(data);
+//   });
+// });
 
 // The logIn post handling ..
 app.post("/logIn",function(req,res){
@@ -143,6 +171,22 @@ app.post("/add",function(req,res){
 	});
 	res.end();
 });
+// post request to contact us 
+app.post("/contactus",function(req,res){
+	var newContactus = new contactus ({
+		name: req.body.name,
+		email: req.body.email,
+		subject: req.body.subject,
+		message: req.body.message
+	});
+  newContactus.save(function(err, newContactus){
+		if (err){
+			console.log(err)
+		};
+	});
+	res.end('Thank You for Contacting US ');
+});
+
 
 
 
