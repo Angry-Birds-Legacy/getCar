@@ -5,6 +5,7 @@ var bodyParser=require('body-parser');
 var path = require('path')
 var user = require("./db/db.js"); // Our user database
 var car = require("./db/carDB.js") // Our car database
+var coment = require("./db/Coment.js")
 var bcrypt = require('bcrypt-nodejs');
 var Promise = require('bluebird');
 var app = express();
@@ -144,9 +145,32 @@ app.post("/add",function(req,res){
 	res.end();
 });
 
+// add coment 
 
+app.post("/coment",function(req,res){
+	console.log(req.body)
+	var comment=new coment({username:req.body.username,txt:req.body.coment,carId:req.body.id});
+	comment.save(function(err, c){
+		if (err){
+			console.log(err)
+		}
+	});
+	coment.find({carId:req.body.id},function (err,data){
+		if(err){
+			console.log(err);
+		}
+		res.json(data);
+	})
+})
 
-
+app.post("/coments",function(req,res){
+	coment.find({carId:req.body.id},function (err,data){
+		if(err){
+			console.log(err);
+		}
+		res.json(data);
+	})
+})
 
 
 

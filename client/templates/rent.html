@@ -1,5 +1,5 @@
 <div class = "rentshow" style="margin-left: 100px;" >
-  <rentshow ng-repeat = "item in $ctrl.rentCar | filter: search | filter: searcch | filter: filterRange2" car = "item">
+  <rentshow userinfo = "$ctrl.userinfo" ng-repeat = "item in $ctrl.rentCar | filter: search | filter: searcch | filter: filterRange2" car = "item">
   </rentshow>
 </div>
 <div class="filters" style="width: 250px;" ng-model = "search.$">
