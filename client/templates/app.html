@@ -1,8 +1,9 @@
 <headbar loog = "$ctrl.loog"></headbar>
-<filters searchtt =$ctrl.searchTest ng-hide = "logIn || signUp || add || about || rent"></filters>
-<rent item = "item" ng-repeat = "item in $ctrl.rentData" ng-show = "rent"></rent> <!-- jwan -->
+<filters searchtt =$ctrl.searchTest ng-hide = "logIn || signUp || add || about || rent || addrental || feedback"></filters>
+<rent rent-car = "$ctrl.rentData" ng-show = "rent"></rent> <!-- jwan -->
 <log-ins ng-show = "logIn"></log-ins>
 <sign-up ng-show = "signUp"></sign-up>
 <add userin = $ctrl.userInfo ng-show = "add"></add>
 <addrental userin = $ctrl.userInfo ng-show = "addrental"></addrental>
 <aboet ng-show = "about"></aboet>
+<feedback ng-show="feedback"></feedback>

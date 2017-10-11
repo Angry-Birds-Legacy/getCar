@@ -35,10 +35,12 @@ angular.module('get-car')
 			$scope.$parent.logIn = null;
 			$scope.$parent.add = null;
 			$scope.$parent.about = null;
+			$scope.$parent.addrental = null;
+			$scope.$parent.feedback = null;
 		};
 
 		$scope.renttt = function(){						//jwan
-			console.log('hello')
+			//console.log('hello')
 			$scope.$parent.rentt();
 		};
 		
@@ -47,10 +49,14 @@ angular.module('get-car')
 		};
 		$scope.addrental=function(){
         	$scope.$parent.adddrental();
-		}
+		};
 
 		$scope.abot = function () {
 			$scope.$parent.shabout();
+		};
+
+		$scope.feedbackPage = function () {
+			$scope.$parent.showFeedback();
 		};
 
 		// the log out function ...
