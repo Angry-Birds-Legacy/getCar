@@ -24,8 +24,23 @@
            <br/>
            Number Phone: {{$ctrl.car.phone}}
          </p>
-
-       </div>
+          
+        <div class="row content" >
+            <div class="col-sm-1 sidenav"></div>
+              <form method='post' class="col-sm-11 sidenav" >
+                <p ng-hide = '$ctrl.userinfo.length!== 0'>You can't add coment With out logging in</p>
+                <p ng-show = '$ctrl.userinfo.length!== 0' style="font-weight:900 ">Comment:</p> 
+                <textarea ng-show = '$ctrl.userinfo.length!== 0' ng-model="$ctrl.coment" name='comment' id='comment' style="width: 70%"></textarea><br />
+                <input ng-show = '$ctrl.userinfo.length!== 0' class='sendbtn' ng-click ='$ctrl.sendComent()' type='submit' value='Send' onClick='reset ()'/>
+                <input ng-show = '$ctrl.userinfo.length!== 0' class='sendbtn' ng-click ='$ctrl.getComents()' type='submit' value='show comments' onClick='reset ()'/>  
+              </form>
+            </div>
+            <div ng-repeat ="coment in $ctrl.coments" >
+              <div href="#" class="list-group-item list-group-item" 
+              style="width:300px ;height:75px;text-align: left ;margin-top:5px;margin-left:150px ;font-weight: 900;font-family: tahoma" >
+              {{coment.username}} coment this:<br><p style="font-weight: 100;font-family: Arial">{{coment.txt}}</p>
+            </div> 
+                </div>
        <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>

@@ -4,7 +4,8 @@ angular.module('get-car')
 .component('filters', {
   // the data from the app component .. 
 	bindings: {
-		searchtt: '<'
+		searchtt: '<',
+    userinfo:'<'
 	},
 
   controller: function($scope, $http,){
