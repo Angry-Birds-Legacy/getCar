@@ -3,6 +3,7 @@ var express = require('express');
 var morgan = require('morgan');
 var bodyParser=require('body-parser');
 var path = require('path')
+var coment = require("./db/Coment.js")
 var user = require("./db/db.js"); // user database
 var car = require("./db/carDB.js") // cars database
 var contactus = require("./db/contactusDB.js") // contact us database
@@ -188,9 +189,32 @@ app.post("/contactus",function(req,res){
 });
 
 
+// add coment 
 
+app.post("/coment",function(req,res){
+	console.log(req.body)
+	var comment=new coment({username:req.body.username,txt:req.body.coment,carId:req.body.id});
+	comment.save(function(err, c){
+		if (err){
+			console.log(err)
+		}
+	});
+	coment.find({carId:req.body.id},function (err,data){
+		if(err){
+			console.log(err);
+		}
+		res.json(data);
+	})
+})
 
-
+app.post("/coments",function(req,res){
+	coment.find({carId:req.body.id},function (err,data){
+		if(err){
+			console.log(err);
+		}
+		res.json(data);
+	})
+})
 
 
 
