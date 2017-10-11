@@ -13,10 +13,10 @@ var mongoURI = "mongodb://angry-birds:12345678@ds113445.mlab.com:13445/get-car-l
 var db = mongoose.connection;
 var Schema = mongoose.Schema;
 // car schema
-var carSchema  = new Schema({
+var carSchema = new Schema({
     username: String,
     phone: Number,
-    image: String,
+	  image: String,
     type : {type: String, uppercase: true},
     color: {type: String, uppercase: true},
     price: Number,
@@ -27,7 +27,6 @@ var carSchema  = new Schema({
     rentingPeriod:Number,
     rentingPrice:Number
 });
-
 var carModel = mongoose.model('carModel',carSchema);
 
 mongoose.connect(mongoURI,{useMongoClient: true});

@@ -29,13 +29,42 @@ var userlogged = []
 
 // This get will start at the beginning to bring all the data from the cars database
 app.get('/data',function(req, res){
-  car.find({operation :'buy' }, function(err,data){
+  //car.find({operation :'buy' }, function(err,data){
+  	car.find({}, function(err,data){
   	// Pushing the logged in variable with the data
 	data.push(logged ,userlogged);
+	//console.log(data)
 	// Sending data to the front end.
 	res.json(data);
   });
 });
+
+
+// This get will start at the beginning to bring all the data from the cars database that the user logged in added before
+app.get('/profile',function(req, res){
+  //car.find({operation :'buy' }, function(err,data){
+  	car.find({username:userlogged[0]}, function(err,data){
+  	// Pushing the logged in variable with the data
+	data.push(logged ,userlogged);
+	//console.log(data)
+	// Sending data to the front end.
+	res.json(data);
+  });
+});
+
+username:userlogged[0]
+
+
+// // This get will start at the beginning to bring all the data from the cars database for just the user that logged in now 
+// app.get('/profile',function(req, res){
+//   	car.find({username:req.body.username}, function(err,data){
+//   	// Pushing the logged in variable with the data
+// 	data.push(logged ,userlogged);
+// 	//console.log(data)
+// 	// Sending data to the front end.
+// 	res.json(data);
+//   });
+// });
 
 // The logIn post handling ..
 app.post("/logIn",function(req,res){
@@ -150,6 +179,7 @@ app.post("/add",function(req,res){
 
 
 app.post("/addtorent",function(req,res){
+	
 	// saving the new car ..
 	// oops!, check line 55 maybe ? ¯\_(ツ)_/¯
 	var carr = new car ({
@@ -157,16 +187,15 @@ app.post("/addtorent",function(req,res){
 		phone: req.body.phone,
 		type: req.body.type,
 		color: req.body.color,
-		price: req.body.price,
 		image: req.body.image,
 		operation:'rent',
 	    status:'available',
 	    pickupPlace:req.body.pickupPlace,
 	    returnPlace:req.body.returnPlace,
-	    rentingPeriod:req.body,
-	    rentingPrice:req.body.rentingPrice
+	    rentingPrice:req.body.price
 
 	});
+	console.log(carr)
   carr.save(function(err, carr){
 		if (err){
 			console.log(err)
