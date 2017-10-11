@@ -36,6 +36,7 @@ angular.module('get-car')
 			$scope.$parent.add = null;
 			$scope.$parent.about = null;
 			$scope.$parent.addrental = null;
+			$scope.$parent.feedback = null;
 		};
 
 		$scope.renttt = function(){						//jwan
@@ -48,10 +49,14 @@ angular.module('get-car')
 		};
 		$scope.addrental=function(){
         	$scope.$parent.adddrental();
-		}
+		};
 
 		$scope.abot = function () {
 			$scope.$parent.shabout();
+		};
+
+		$scope.feedbackPage = function () {
+			$scope.$parent.showFeedback();
 		};
 
 		// the log out function ...
