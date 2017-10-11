@@ -1,0 +1,29 @@
+<br><br><br>
+<label>Name:</label>
+<p>{{dataa[0].username}}</p>
+<br>
+<label>Phone:</label>
+<br>
+<p>{{dataa[0].phone}}</p>
+<br>
+<p>Cars:</p>
+<div ng-repeat=" elem in dataa" >
+    <div>
+    <img ng-src = {{elem.image}} style="width: 200px"></img>
+    <br>
+    <p>{{elem.type}}</p>
+    <br>    
+    <p>{{elem.color}}</p>
+    <br>
+    <p>{{elem.operation}}</p>
+    <br>
+    <p>{{elem.price}}</p>
+    <br>
+    <div>
+            <button ng-model='template' ng-click='edit()'>EDIT</button>
+            <div class="slide-animate-container">
+              <div class="slide-animate" ng-include="template.url"></div>
+            </div>
+          </div>
+    </div>
+</div>

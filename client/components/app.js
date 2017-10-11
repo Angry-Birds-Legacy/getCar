@@ -17,6 +17,7 @@ angular.module('get-car')
 
 		// these variables to show the different templates.	
 		$scope.rent;		//jwan
+		$scope.showProfile;
 		$scope.logIn;
 		$scope.signUp;
 		$scope.add;
@@ -39,10 +40,21 @@ angular.module('get-car')
 			$scope.addrental=false;
 		}
 
+		  $scope.pro = function () {		//haya
+			$scope.showProfile = true;
+			$scope.rent = false;
+			$scope.logIn = false;
+			$scope.signUp = false;
+			$scope.about = false;
+			$scope.add = false;
+			$scope.addrental=false;
+		}
+
 		// This function is connected with the headbar 
 		// and responsible of showing the log in template.
 		$scope.change = function(){
 			$scope.logIn = true
+			$scope.showProfile = false;
 			$scope.signUp = false
 			$scope.about = false
 			$scope.rent = false;	
@@ -56,6 +68,7 @@ angular.module('get-car')
 			$scope.logIn = false
 			$scope.about = false
 			$scope.rent = false;
+			$scope.showProfile = false;
 			$scope.addrental=false;		//jwan
 		}
 
@@ -63,6 +76,7 @@ angular.module('get-car')
 			$scope.about = true
 			$scope.signUp = false
 			$scope.logIn = false
+			$scope.showProfile = false;
 			$scope.rent = false;		//jwan
 			$scope.add = false;			//jwan
 			$scope.addrental = false;
@@ -73,6 +87,7 @@ angular.module('get-car')
 		$scope.addd = function(){
 			$scope.add = true
 			$scope.rent = false;
+			$scope.showProfile = false;
 			$scope.addrental = false;
 			$scope.about = false
 
@@ -82,6 +97,7 @@ angular.module('get-car')
         $scope.adddrental = function(){
 			$scope.addrental = true
 			$scope.rent = false;
+			$scope.showProfile = false;
 			$scope.about = false
 			$scope.signUp = false
 			$scope.logIn = false		//jwan
