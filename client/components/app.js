@@ -16,13 +16,16 @@ angular.module('get-car')
 	// responsible of the show and hide in the app.html
 
 		// these variables to show the different templates.	
+		$scope.carId;
 		$scope.rent;		//jwan
+		$scope.showProfile;
 		$scope.logIn;
 		$scope.signUp;
-		$scope.add;
+		$scope.adde;
 		$scope.addrental;
 		$scope.about;
 		$scope.feedback;
+		$scope.edit = false
 		// this one is from the server logged variable.
 		// check line 65.
 		this.loog = false;
@@ -31,63 +34,101 @@ angular.module('get-car')
 		this.userInfo;
 		this.rentUserInfo;
 
-		$scope.rentt = function () {		//jwan
-			$scope.rent = true;
+		$scope.showEdit = function () {		//jwan
+			$scope.edit=true;
+			$scope.rent = false;
+			$scope.showProfile = false;
 			$scope.logIn = false;
 			$scope.signUp = false;
 			$scope.about = false;
-			$scope.add = false;
+			$scope.adde = false;
 			$scope.addrental=false;
 			$scope.feedback = false;
+		}
+
+
+
+		$scope.rentt = function () {		//jwan
+			$scope.rent = true;
+			$scope.edit=false;
+			$scope.showProfile = false;
+			$scope.logIn = false;
+			$scope.signUp = false;
+			$scope.about = false;
+			$scope.adde = false;
+			$scope.addrental=false;
+			$scope.feedback = false;
+		}
+
+		  $scope.pro = function () {		//haya
+			$scope.showProfile = true;
+			$scope.edit=false;
+			$scope.rent = false;
+			$scope.logIn = false;
+			$scope.signUp = false;
+			$scope.about = false;
+			$scope.adde = false;
+			$scope.addrental=false;
 		}
 
 		// This function is connected with the headbar 
 		// and responsible of showing the log in template.
 		$scope.change = function(){
-			$scope.logIn = true
+			$scope.logIn = true;
+			$scope.edit=false;
+			$scope.showProfile = false;
 			$scope.signUp = false
 			$scope.about = false
 			$scope.rent = false;	
 			$scope.addrental=false;	//jwan
 			$scope.feedback = false;
+			$scope.adde = false;
 		};
 		
 		// This function is connected with the headbar 
 		// and responsible of showing the sign up template.
 		$scope.changes = function(){
-			$scope.signUp = true
+			$scope.signUp = true;
+			$scope.edit=false;
+			$scope.adde = false;			
 			$scope.logIn = false
 			$scope.about = false
 			$scope.rent = false;
+			$scope.showProfile = false;
 			$scope.addrental=false;		//jwan
 			$scope.feedback = false;
 		}
 
 		$scope.shabout = function(){
 			$scope.about = true
+			$scope.edit=false;
 			$scope.signUp = false
 			$scope.logIn = false
+			$scope.showProfile = false;
 			$scope.rent = false;		//jwan
-			$scope.add = false;			//jwan
+			$scope.adde = false;			//jwan
 			$scope.addrental = false;
 			$scope.feedback = false;
 		}
 
 		$scope.showFeedback = function(){
 			$scope.feedback = true;
+			$scope.edit=false;
 			$scope.about = false;
 			$scope.signUp = false;
 			$scope.logIn = false;
 			$scope.rent = false;		//jwan
-			$scope.add = false;			//jwan
+			$scope.adde = false;			//jwan
 			$scope.addrental = false;
 		}
 		
 		// This function is connected with the headbar 
 		// and responsible of showing the add car template.
 		$scope.addd = function(){
-			$scope.add = true
+			$scope.adde = true
+			$scope.edit=false;
 			$scope.rent = false;
+			$scope.showProfile = false;
 			$scope.addrental = false;
 			$scope.about = false;
 			$scope.feedback = false;
@@ -97,11 +138,13 @@ angular.module('get-car')
 		// and responsible of showing the add rental car template.
         $scope.adddrental = function(){
 			$scope.addrental = true
+			$scope.edit=false;
 			$scope.rent = false;
-			$scope.about = false;
-			$scope.signUp = false;
+			$scope.showProfile = false;
+			$scope.about = false
+			$scope.signUp = false
 			$scope.logIn = false		//jwan
-			$scope.add = false;			//jwan
+			$scope.adde = false;			//jwan
 			$scope.feedback = false;
 
 		}
