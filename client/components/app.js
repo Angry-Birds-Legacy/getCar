@@ -116,7 +116,7 @@ angular.module('get-car')
 			  // assigning the logged status to the loog variable.
 			  $scope.$ctrl.loog = response.data[response.data.length - 2]
 			  $scope.$ctrl.userInfo = response.data[response.data.length - 1]
-
+			 
 			  // saving the cars objects and removing the looged in status. 
 			  for (var i=0; i<response.data.length - 2; i++){
 			  	//console.log(response.data[i]);
