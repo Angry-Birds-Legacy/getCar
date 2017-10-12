@@ -1,3 +1,6 @@
+<center>
+<div>
+<div ng-hide="edittt">
 <br><br><br>
 <label>Name:</label>
 <p>{{dataa[0].username}}</p>
@@ -8,7 +11,7 @@
 <br>
 <p>Cars:</p>
 <div ng-repeat=" elem in dataa" >
-    <div>
+    
     <img ng-src = {{elem.image}} style="width: 200px"></img>
     <br>
     <p>{{elem.type}}</p>
@@ -19,11 +22,12 @@
     <br>
     <p>{{elem.price}}</p>
     <br>
-    <div>
-            <button ng-model='template' ng-click='edit()'>EDIT</button>
-            <div class="slide-animate-container">
-              <div class="slide-animate" ng-include="template.url"></div>
-            </div>
-          </div>
-    </div>
+    <button ng-click = "edit(elem)">EDIT</button>
+    <button ng-click = "removee">DELETE</button>
+    
 </div>
+   
+</div>
+<!-- <edit ng-show="edittt" ></edit> -->
+</div>
+</center>

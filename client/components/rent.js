@@ -4,7 +4,8 @@ angular.module('get-car')
 
 .component('rent', {
     bindings: {
-	   rentCar: "<"
+	   rentCar: "<",
+     userinfo:'<'
     },
       controller: function($scope, $http){
     // Our custom price filter
