@@ -1,8 +1,12 @@
 <headbar loog = "$ctrl.loog"></headbar>
-<filters searchtt =$ctrl.searchTest ng-hide = "logIn || signUp || add || about || rent"></filters>
-<rent item = "item" ng-repeat = "item in $ctrl.rentData" ng-show = "rent"></rent> <!-- jwan -->
+<show-profile ng-show = "showProfile" ng-hide = "!showProfile||logIn || signUp || adde || about || rent || addrental || edit || feedback"></show-profile>
+<!-- <edit  ng-show = "edit" ng-hide = "!edit || logIn || signUp || adde || about || rent || addrental || showProfile || feedback"></edit> -->
+<filters userinfo = $ctrl.userInfo  searchtt =$ctrl.searchTest ng-hide = "logIn || signUp || adde || about || rent || addrental || showProfile || feedback || edit"></filters>
+<edit ng-if="edit === true"></edit>
+<rent userinfo = '$ctrl.userInfo' rent-car = "$ctrl.rentData" ng-show = "rent" ng-hide = "!rent||logIn || signUp || adde || about || edit  || addrental || showProfile || feedback"></rent> <!-- jwan -->
 <log-ins ng-show = "logIn"></log-ins>
 <sign-up ng-show = "signUp"></sign-up>
-<add userin = $ctrl.userInfo ng-show = "add"></add>
-<addrental userin = $ctrl.userInfo ng-show = "addrental"></addrental>
-<aboet ng-show = "about"></aboet>
+<add userin = '$ctrl.userInfo' ng-show = "adde" ng-hide= "!adde || logIn || signUp || edit || about || rent || addrental || showProfile || feedback"></add>
+<addrental userin = $ctrl.userInfo ng-show = "addrental"  ng-hide = "!addrental||logIn || signUp || adde || about || rent || edit || showProfile || feedback"></addrental>
+<aboet ng-show = "about"  ng-hide = "!about||logIn || signUp || adde || addrental || rent || edit || showProfile || feedback"></aboet>
+<feedback ng-show="feedback" ng-hide = "!feedback||logIn || signUp || adde || about || rent || addrental || showProfile || edit"></feedback>
