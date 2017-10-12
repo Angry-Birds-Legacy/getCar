@@ -42,7 +42,7 @@ app.get('/data',function(req, res){
 });
 
 
-// This get will start at the beginning to bring all the data from the cars database that the user logged in added before
+// This get will start at clicking on profile and brings all the data from the cars database that the user logged in added before
 app.get('/profile',function(req, res){
   //car.find({operation :'buy' }, function(err,data){
   	car.find({username:userlogged[0]}, function(err,data){
@@ -54,19 +54,51 @@ app.get('/profile',function(req, res){
   });
 });
 
-username:userlogged[0]
 
 
-// // This get will start at the beginning to bring all the data from the cars database for just the user that logged in now 
-// app.get('/profile',function(req, res){
-//   	car.find({username:req.body.username}, function(err,data){
-//   	// Pushing the logged in variable with the data
-// 	data.push(logged ,userlogged);
-// 	//console.log(data)
-// 	// Sending data to the front end.
-// 	res.json(data);
-//   });
-// });
+
+// This get will delete the car that the logged in user added before and clicked on delete button 
+app.post('/profile/remove',function(req, res){
+  	car.findByIdAndRemove(req.params._id, function(err,data){
+  		var response={
+  			message:"The car deleted successfully",
+  			id:req.body._id
+  		}
+  });
+  	res.status(200).send(response);
+});
+// This will Edit the car that the logged in user has 
+
+
+app.post('/profile/edit',function(req, res){
+	var _id = req.body._id
+	var username = req.bodey.username;
+	var eamil = req.body.email;
+    var phone = req.body.phone;
+	var image = req.body.image;
+	var type = req.body.type;
+    var color = req.body.color;
+    var price = req.body.price;
+    var  pickupPlace = req.body.pickupPlace;
+    var returnPlace = req.body.returnPlace;
+    var rentingPeriod = req.body.rentingPeriod;
+    var rentingPrice = req.body.rentingPrice;
+
+  //car.find({operation :'buy' }, function(err,data){
+  	car.findByID(_id, function(err,data){
+  	// Pushing the logged in variable with the data
+	data.save(function(err){
+		if(err)
+			console.log('error')
+		else 
+			console.log('success')
+	})
+	//console.log(data)
+	// Sending data to the front end.
+	res.end();
+  });
+});
+
 
 // The logIn post handling ..
 app.post("/logIn",function(req,res){
