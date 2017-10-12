@@ -4,6 +4,7 @@
 <filters userinfo = $ctrl.userInfo  searchtt =$ctrl.searchTest ng-hide = "logIn || signUp || adde || about || rent || addrental || showProfile || feedback || edit"></filters>
 <edit ng-if="edit === true"></edit>
 <rent userinfo = '$ctrl.userInfo' rent-car = "$ctrl.rentData" ng-show = "rent" ng-hide = "!rent||logIn || signUp || adde || about || edit  || addrental || showProfile || feedback"></rent> <!-- jwan -->
+
 <log-ins ng-show = "logIn"></log-ins>
 <sign-up ng-show = "signUp"></sign-up>
 <add userin = '$ctrl.userInfo' ng-show = "adde" ng-hide= "!adde || logIn || signUp || edit || about || rent || addrental || showProfile || feedback"></add>

@@ -2,7 +2,7 @@
   <rentshow userinfo = "$ctrl.userinfo" ng-repeat = "item in $ctrl.rentCar | filter: search | filter: searcch | filter: filterRange2" car = "item">
   </rentshow>
 </div>
-<div class="filters" style="width: 250px;" ng-model = "search.$">
+<div class="filters" style="width: 250px;background-color:Gray;" ng-model = "search.$">
    <div style="margin-top: 50px;">
       <div class="form-group input-group" style="margin-left:30px;">          
          <span class="input-group-addon" >
@@ -11,7 +11,7 @@
          <input id="search" type="text" ng-model="search.type"  placeholder="Search ...">
       </div>
    </div>
-   <div  class="subfilter"  ng-model = "$parent.searcch.$" >
+   <div  class="subfilter"  ng-model = "$parent.searcch.$" style="background-color:Gray;">
       <h3 class="text-centre"><strong style="margin-left:20px;font-size:30px;font-style:italic; font-family:Relation"> </strong></h3>
       <div class="type" >
          <h5><strong style="margin-left:40px;font-size:40px;font-style:italic; font-family:Relation">Type </strong></h5>
